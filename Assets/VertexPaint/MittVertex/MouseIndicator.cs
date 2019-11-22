@@ -2,15 +2,15 @@
 
 public class MouseIndicator : MonoBehaviour
 {
-    private readonly int segments = 10;
+    int segments = 10;
     float xradius = 0.5f;
     float yradius = 0.5f;
     LineRenderer line;
     
-    void Start()
+    void Awake()
     {
         //Create the Linerenderer
-        line = gameObject.GetComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();
 
         line.positionCount = segments;
         line.useWorldSpace = false;
@@ -39,12 +39,13 @@ public class MouseIndicator : MonoBehaviour
 
         float angle = 2f;
 
-        for (int i = 0; i < (segments + 1); i++)
+        for (int i = 0; i < segments; i++)
         {
             //math to make the circle
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             y = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
 
+            Debug.Log(line);
             line.SetPosition(i, new Vector3(x, y, z));
             angle += (360f / segments);
         }
@@ -55,6 +56,7 @@ public class MouseIndicator : MonoBehaviour
         Debug.Log("hehe");
         xradius = value;
         yradius = value;
+        SetupCircle();
     }
      
     // functions that are called when we press the UI buttons.

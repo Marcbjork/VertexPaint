@@ -11,7 +11,7 @@ public class VertexPaint : MonoBehaviour
     Camera cam;
 
     public Slider falloffSlider;
-    float brushSize = 10.0f;
+    float brushSize = 5.0f;
     float brushOpacity = 1.0f;
     public float brushFalloff = 1.0f;
 
@@ -29,9 +29,9 @@ public class VertexPaint : MonoBehaviour
 
         //brush Falloff slider
         falloffSlider.minValue = 1;
-        falloffSlider.maxValue = 6;
+        falloffSlider.maxValue = 8;
         //falloffSlider.wholeNumbers = true;
-        falloffSlider.value = 2;
+        falloffSlider.value = 3;
     }
    
     void Update()
