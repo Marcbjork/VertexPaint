@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class CameraZoom : MonoBehaviour
 
     void Update()
     {
+        //Simple mousescroll when using the wheel.
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);

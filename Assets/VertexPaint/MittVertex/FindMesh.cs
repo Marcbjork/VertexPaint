@@ -10,6 +10,7 @@ public class FindMesh
 
         if (aGO)
         {
+            //find the current Mesh and check wheter its and meshfiler or skinnedmesh;
             MeshFilter curFilter = aGO.GetComponent<MeshFilter>();
             SkinnedMeshRenderer curSkinned = aGO.GetComponent<SkinnedMeshRenderer>();
 
@@ -23,19 +24,19 @@ public class FindMesh
                 curMesh = curSkinned.sharedMesh;
             }
         }
-
+        // return the curmesh for use in Vertexpaint script
         return curMesh;
     }
 
 
-    //Fallof Methods
+    //Fallof 
     public static float LinearFalloff(float distance, float brushRadius)
     {
         return Mathf.Clamp01(1 - distance / brushRadius);
     }
 
 
-    //Lerp Methods
+    //Lerp colors
     public static Color VtxColorLerp(Color colorA, Color colorB, float value)
     {
         if (value > 1f)
