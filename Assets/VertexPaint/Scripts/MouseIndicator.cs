@@ -2,9 +2,9 @@
 
 public class MouseIndicator : MonoBehaviour
 {
-    int segments = 10;
-    float xradius = 0.5f;
-    float yradius = 0.5f;
+    int segments = 15;
+    float xradius = 0.1f;
+    float yradius = 0.1f;
     LineRenderer line;
     
     void Awake()
@@ -45,7 +45,6 @@ public class MouseIndicator : MonoBehaviour
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             y = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
 
-            Debug.Log(line);
             line.SetPosition(i, new Vector3(x, y, z));
             angle += (360f / segments);
         }
@@ -53,7 +52,6 @@ public class MouseIndicator : MonoBehaviour
     }
     public void OnValueChange(float value)
     {
-        Debug.Log("hehe");
         xradius = value;
         yradius = value;
         SetupCircle();

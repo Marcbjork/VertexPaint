@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gatu_VertexColor_MAT
+  m_Name: VertexMaterial
   m_Shader: {fileID: 4800000, guid: 05b7e20f76aa81643b54bc66d9e1d3b9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5

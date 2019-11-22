@@ -11,7 +11,7 @@ public class VertexPaint : MonoBehaviour
     Camera cam;
 
     public Slider falloffSlider;
-    float brushSize = 5.0f;
+    float brushSize = 2.0f;
     float brushOpacity = 1.0f;
     public float brushFalloff = 1.0f;
 
@@ -28,10 +28,10 @@ public class VertexPaint : MonoBehaviour
         cam = Camera.main;
 
         //brush Falloff slider
-        falloffSlider.minValue = 1;
-        falloffSlider.maxValue = 8;
+        falloffSlider.minValue = 0.2f;
+        falloffSlider.maxValue = 2;
         //falloffSlider.wholeNumbers = true;
-        falloffSlider.value = 3;
+        falloffSlider.value = 1;
     }
    
     void Update()
@@ -109,7 +109,7 @@ public class VertexPaint : MonoBehaviour
 
     void SavePrefab()
     {
-        //Stores the CURRENT gameobjects in an array 
+        //Stores the CURRENT gameobjects in an array (Most have the correct tag)
         GameObject[] objectarray = GameObject.FindGameObjectsWithTag("VertexCube");
         foreach(GameObject gameObject in objectarray)
         {
@@ -117,6 +117,7 @@ public class VertexPaint : MonoBehaviour
             string localPath = "Assets/" + gameObject.name + ".prefab";
             localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
             PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, localPath, InteractionMode.UserAction);
+            Debug.Log("Saved");
         }
 
     }
