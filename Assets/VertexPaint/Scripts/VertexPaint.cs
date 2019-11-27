@@ -22,15 +22,12 @@ public class VertexPaint : MonoBehaviour
     Color foregroundColor;
     Color activeColor;
   
-
     void Start()
     {
         cam = Camera.main;
 
-        //brush Falloff slider
         falloffSlider.minValue = 0.2f;
         falloffSlider.maxValue = 2;
-        //falloffSlider.wholeNumbers = true;
         falloffSlider.value = 1;
     }
    
@@ -40,16 +37,15 @@ public class VertexPaint : MonoBehaviour
         Ray worldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0) && Physics.Raycast(worldRay, out curHit, 500f))
         {
-            
             if (isPainting)
             {
                //Begin vertex painting
                  PaintVertexColors();
-                
             }
             
             if (allowPainting)
             {   
+                // added alot off "Null checks" to make sure that the player is always aiming at something, 
                 if (curHit.transform.gameObject != lastGO)
                 {
                     curGO = curHit.transform.gameObject;
@@ -69,7 +65,6 @@ public class VertexPaint : MonoBehaviour
         {
             SavePrefab();
         }
-
     }
 
     void PaintVertexColors()
@@ -102,7 +97,6 @@ public class VertexPaint : MonoBehaviour
                 falloff = Mathf.Pow(falloff, brushFalloff * 3f) * brushOpacity;
                 colors[i] = FindMesh.VtxColorLerp(colors[i], foregroundColor, falloff);
             }
-
             curMesh.colors = colors;
         }
     }
@@ -124,7 +118,6 @@ public class VertexPaint : MonoBehaviour
     public void OnValueChanged(float value)
     {
         brushSize = value;
-        
     }
     //Change the painting color
     public void RedColor()

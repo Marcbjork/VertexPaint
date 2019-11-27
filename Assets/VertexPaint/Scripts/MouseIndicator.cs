@@ -48,8 +48,8 @@ public class MouseIndicator : MonoBehaviour
             line.SetPosition(i, new Vector3(x, y, z));
             angle += (360f / segments);
         }
-
     }
+    //added so that when we increase the size off the painter the linerender gets increased / decreased depending on the value.
     public void OnValueChange(float value)
     {
         xradius = value;

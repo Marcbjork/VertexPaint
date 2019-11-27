@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FindMesh
 {
@@ -28,17 +26,16 @@ public class FindMesh
         return curMesh;
     }
 
-
     //Fallof 
     public static float LinearFalloff(float distance, float brushRadius)
     {
         return Mathf.Clamp01(1 - distance / brushRadius);
     }
 
-
     //Lerp colors
     public static Color VtxColorLerp(Color colorA, Color colorB, float value)
     {
+       
         if (value > 1f)
         {
             return colorB;

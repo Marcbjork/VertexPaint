@@ -37,9 +37,7 @@ Shader "Assets/vertexPaint/Shader/VertexShader" {
                 return o;
             }
             float4 frag(VertexOutput i) : COLOR {
-/////// Vectors:
-////// Lighting:
-////// Emissive:
+
                 float3 emissive = i.vertexColor.rgb;
                 float3 finalColor = emissive;
                 fixed4 finalRGBA = fixed4(finalColor,1);
